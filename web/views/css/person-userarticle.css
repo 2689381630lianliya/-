@@ -1,0 +1,35 @@
+ /*table{*/
+  /*border: 1px solid red;	*/
+/*} */
+table{
+	border: 1px solid #999e80;
+	margin: 0 auto;
+	margin-top: 8px;
+}
+.title{
+	text-align: center;
+	font-size: 25px;
+}
+table td{
+	border-bottom: #999e80 solid 0.0625rem;
+}
+
+table td img{
+	vertical-align: middle;
+	height:30px;
+	width:30px;
+	margin-bottom: 3px;
+}
+/*table td:last-of-type{*/
+	/*border-bottom: none;*/
+/*}*/
+.linkpage{
+	text-align: center;
+	letter-spacing: 5px;
+}
+table a:hover{
+	color: #ff007f;
+}
+.linkpage a:hover{
+	color: red;
+} 

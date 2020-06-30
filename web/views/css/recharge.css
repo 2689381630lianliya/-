@@ -1,0 +1,64 @@
+.recharge-center{
+	background-color: #00aaff;
+	height: 400px;
+	position: relative;
+		text-align: center;
+		
+}
+.recharge-center h2{
+	margin-left: 70px;
+	line-height: 60px;
+	font-size: 25px;
+}
+#text{
+	line-height: 70px;
+}
+#text input{
+	line-height: 18px;
+	    height: 18px;
+	   border: rgb(221, 221, 221) 1px solid;
+	    padding: 10px 0 10px 70px;
+	    width: 150px;
+	    float: none;
+		/* 	内容会被修剪，并且其余内容是不可见的。 */
+	    overflow: hidden;
+	    font-size: 14px;
+	    font-family: '\5b8b\4f53';
+}
+.choice{
+margin-left: 80px;	
+}
+.mui-form .submit{
+	background-color: red;
+	margin-top: 40px;
+	width: 170px;
+
+	margin-left: 625px;
+	border: red 1px solid;
+	
+}
+.mui-form .submit input{
+	color: white;
+	background: none;
+	height: 30px;
+	width: 170px;
+	border: none;
+}
+.choice input{
+	width: 30px;
+}
+.mui-form{
+	margin-top: 120px;
+	line-height:30px;
+	font-size: 18px;
+}
+.boxone{
+	
+	text-align:center;
+	line-height: 30px;
+	background-color: #55ff00;
+	position: absolute;
+	width: 100%;
+	top: 70px;
+	height: 450px;
+}

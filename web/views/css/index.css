@@ -1,0 +1,111 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+	color: #222222;
+}
+.mui-header{
+	/* margin-top: 30px; */
+    line-height: 80px;
+	background-color: #2AC845;
+	height: 80px;
+}
+.top-left{
+	float: left;
+	/* background-color: #0062CC; */
+		padding-left: 10px;
+	text-align: center;
+
+}
+.top-left a{
+	padding-left: 50px;
+}
+
+.top-center{
+	/* background-color: #AAAA7F; */
+	margin-left:100px ;
+	float: left;
+}
+.top-center .text{
+	font-size: 15px;
+	  border: 1px solid #bdbdbd;
+	  width: 270px;
+	  height: 40px;
+	  padding: 10px 100px 10px 20px;
+	  border-radius: 10px 10px 10px 10px;
+}
+.top-center .submit{
+	width: 64px;
+	height: 62px;
+	 border: 1px solid #bdbdbd;
+	 border-left: none;
+	 border-radius: 0px 10px 10px 0px;
+	 position: relative;
+	 left: -67px;
+	background: url(../img/sous.png) white;
+}
+.top-right{
+
+	padding-right:10px ;
+	float: right;
+}
+.top-right a{ 
+	padding-left: 12px;
+}
+.resou{
+	
+	clear: both;
+	text-align: center;
+	/* position: relative; */
+	margin:0px auto;
+	margin-top: 50px;
+	/* top: 40px; */
+	font-size: 25px;
+}
+.mui-table{
+	/* padding: 100px; */
+	font-size: 20px;
+	padding-top: 90px;
+	margin: 0px auto;
+	line-height: 70px;
+	
+}
+.mui-table a:hover{
+	color: #ff0000;
+}
+hr{
+	clear: both;
+	margin: 0 auto;
+	position: relative;
+	top: 60px;
+}
+.mui-bottom,.copyright{
+
+	text-align: center;
+	
+	clear: both;
+	
+	
+}
+.mui-bottom{
+border-top: #e6e6e6 solid 3px;
+	    padding-top: 30px;
+	    padding-bottom: 15px;
+		margin-top: 80px;
+		
+}
+.mui-bottom a{
+	padding-right:15px ;
+}
+.mui-bottom a:hover{
+	color: #aaaa7f;
+}
+.linkpage{
+	text-align: center;
+	letter-spacing: 5px;
+}
+.linkpage a:hover{
+	color: red;
+} 

@@ -1,0 +1,142 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #222222;
+}
+
+.mui-title{
+	display: inline-block;
+	float: left;
+	margin-left: 300px;
+	    margin-top: 100px;
+
+}
+
+
+.righttop{
+	float: right;
+	margin-right: 300px;
+	    margin-top: 100px;
+}
+.righttop a{
+	margin-left: 15px;
+	font-size: 18px;
+	color: red;
+}
+.righttop a:hover{
+	color: #c70000;
+	text-decoration:  underline;
+}
+.mui-center{
+
+	clear: both;	
+}
+.mui-text-center{
+	
+	margin: 0 auto;
+	width: 600px;
+	margin-bottom: 10px;
+	height: 600px;
+	/* border: #4CD964 solid 1px ; */
+	position: relative;
+	top: 90px;
+	/* position: relative; */
+	/* background-color: #abfe94; */
+}
+.text{
+	/* margin-left:10px ; */
+	line-height: 18px;
+	    height: 18px;
+	   border: rgb(221, 221, 221) 1px solid;
+	    padding: 10px 0 10px 70px;
+	    width: 320px;
+	    float: none;
+		/* 	内容会被修剪，并且其余内容是不可见的。 */
+	    overflow: hidden;
+	    font-size: 14px;
+	    font-family: '\5b8b\4f53';
+}
+
+.text,select,.mui-sex{
+	margin-left:30px ; 
+}
+.name-lable{
+	
+	
+		margin-left: 12px;
+	    border-right: 1px solid #bdbdbd;
+	background: url(../img/icon1.jpg) no-repeat;
+}
+.pswd-lable{
+	
+	margin-left: 12px;
+	    border-right: 1px solid #bdbdbd;
+	background: url(../img/icon2.jpg) no-repeat;
+}
+form{
+	font-size: 15px;
+	margin-top: 60px;
+	line-height: 60px;
+
+/* 	text-align: center; */
+}
+.securitycode{
+	position: relative;
+	bottom: 100px;
+	left: 119px;
+	
+	
+}
+label{
+	/* position: absolute; */
+	display: inline-block;
+	margin-left: 30px;
+}
+.code-lable{
+	width: 90px;
+	
+}
+.getcode{
+	position: relative;
+	    top: -49px;
+	        right: -143px;
+		border: rgb(221, 221, 221) 1px solid;
+}
+#rigister{
+	color: white;
+	font-size: 15px;
+	position:relative;
+   left: 150px;
+   top: 80px;
+   background:none;
+   width: 300px;
+   height: 50px;
+   border: #ff0000 solid 1px;
+   background-color: #ff0000;
+}
+
+hr{
+	margin: 0 auto;
+	position: relative;
+	top: 80px;
+}
+.mui-bottom,.copyright{
+	text-align: center;
+	position: relative;
+	top: 50px;
+	border: ;
+}
+.mui-bottom{
+	    padding-top: 30px;
+	    padding-bottom: 15px;
+}
+.mui-bottom a{
+	padding-right:15px ;
+}
+.mui-bottom a:hover{
+	color: #aaaa7f;
+}

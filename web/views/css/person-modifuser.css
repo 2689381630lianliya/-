@@ -1,0 +1,36 @@
+.title{
+	text-align: center;
+	font-size: 25px;
+}
+.right-box{
+	position: relative;
+}
+.right-box label{
+	position: absolute;
+	left: 335px;
+	margin-top: 30px;
+	
+}
+#modif{
+	position: absolute;
+	width: 200px;
+	border: solid red 1px;
+	right: 423px;
+	background-color: red;
+	margin-top: 70px;
+	text-align: center;
+	letter-spacing: 10px;
+}
+#modif .submit{
+	right: 423px;
+	width: 200px;
+	background-color: red;
+	border: none;
+	color: white;
+}
+.right-box .text{
+	width: 250px;
+	height: 30px;
+	border: 1px solid #bdbdbd;
+	border-radius: 10px;
+}

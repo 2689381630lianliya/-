@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="org.blog.mapper.Blogmapper">
+
+    <select id="queryuser" parameterType="org.blog.entiy.user" resultType="int">
+        select count(id) from user
+        <where>
+
+                and #{user.username} = username
+
+                and #{user.password} = password
+
+        </where>
+    </select>
+    <insert id="rigisteruser" parameterType="org.blog.entiy.user">
+        insert into user(username,password,sex,address_id,sign) values (
+        #{user.username},#{user.password},#{user.sex},(select id from address where adres = #{user.address}),
+        #{user.sign})
+    <!-- INSERT INTO USER(username,PASSWORD,sex,address_id) VALUES (
+     'admn','lianliya7','男',(SELECT id FROM address WHERE adres = '北京')
+     )-->
+ </insert>
+    <insert id="registerlogintable" parameterType="int">
+        insert into login (id) values (#{id})
+    </insert>
+    <update id="modiflogin" parameterType="int[]">
+        update  login set status = #{array[0]} where id=#{array[1]}
+    </update>
+    <select id="querylogin" parameterType="int" resultType="org.blog.entiy.login">
+
+        select * from login where id=#{id}
+    </select>
+
+
+
+ <select id="querybyname" parameterType="java.lang.String" resultType="org.blog.entiy.user">
+     select * from user where username =#{username}
+ </select>
+ <select id="queryqianshi" resultType="org.blog.entiy.article">
+    SELECT * FROM article ORDER BY award DESC LIMIT 0,10
+ </select>
+ <select id="queryvip" parameterType="java.lang.String" resultType="org.blog.entiy.vip">
+     select * from vip where (select id from user where username=#{username})=sid;
+ </select>
+ <update id="updatevip" parameterType="int[]">
+     update  vip set grade = #{array[0]},course=#{array[1]} where sid = #{array[2]}
+ </update>
+ <!--注册用户后 添加vip表和article表数据-->
+
+    <insert id="addvip" parameterType="org.blog.entiy.user">
+        insert into vip (sid) values(#{user.id})
+    </insert>
+
+   <update id="addmoney" parameterType="int[]">
+       update user set money = #{array[0]} where id =#{array[1]}
+   </update>
+    <update id="addaward" parameterType="int[]">
+        update  article set award = #{array[0]} where id=#{array[1]}
+    </update>
+    <select id="queryaward" parameterType="int" resultType="int">
+         select award from article where id = #{id}
+    </select>
+    <update id="addcourse" parameterType="int[]">
+        update vip set course =  #{array[0]} where sid=#{array[1]}
+    </update>
+    <update id="alteruser" parameterType="org.blog.entiy.user">
+        update user set sex=#{user.sex},address_id=
+        (select id from address where adres = #{user.address})where id=#{user.id}
+    </update>
+    <select id="queryalltitle" parameterType="java.lang.String" resultType="org.blog.entiy.article">
+                SELECT * FROM article WHERE title LIKE CONCAT('%',#{title},'%')
+    </select>
+	<select id="querytitle" parameterType="Object[]" resultType="org.blog.entiy.article">
+                SELECT * FROM article WHERE title LIKE CONCAT('%',#{array[0]},'%')  limit #{array[1]},10
+    </select>
+    <update id="altercount" parameterType="int[]">
+        update article set count = #{array[0]} where id=#{array[1]}
+    </update>
+    <select id="queryuserarticle" parameterType="int" resultType="org.blog.entiy.article">
+        select * from article where id =#{id}
+    </select>
+    <!--  分页查询自己的文章-->
+    <select id="queryuserarticle2" parameterType="int[]" resultType="org.blog.entiy.article">
+        select * FROM article where id =#{array[0]} limit #{array[1]},7
+    </select>
+
+    <select id="queryarticleaddress" resultType="org.blog.entiy.article" parameterType="Object[]">
+        select * from article  <where>
+        <if test="array!=null">
+            and id=#{array[0]}
+            and title=#{array[1]}
+
+        </if>
+    </where>
+    </select>
+
+    <!--<update id="alterarticle"></update> -->
+    <delete id="deletearticle" parameterType="Object[]">
+        delete from article where id=#{array[0]} and title=#{array[1]}
+    </delete>
+    <select id="queryuserbyid" parameterType="int" resultType="org.blog.entiy.user">
+        select * from user where id =#{id}
+    </select>
+
+    <select id="querycount" parameterType="Object[]" resultType="int">
+        select count from article <where>
+        and id=#{array[0]}
+        and title =#{array[1]}
+    </where>
+    </select>
+    <update id="updatearticleaddress" parameterType="Object[]">
+        update article set memory = #{array[0]},title=#{array[1]} <where>
+        and id =#{array[2]}
+        and title=#{array[3]}
+    </where>
+    </update>
+    <update id="alterpass" parameterType="org.blog.entiy.user">
+        update user set password =#{user.password} where id =#{user.id}
+    </update>
+    <select id="querynamebyId" parameterType="int" resultType="java.lang.String">
+        select username from user where id =#{id}
+    </select>
+    <insert id="addrecord" parameterType="org.blog.entiy.record">
+         insert  into record (id,address,username,title) values(#{record.id},#{record.address},
+         #{record.username},#{record.title})
+    </insert>
+
+    <select id="queryallrecord" parameterType="int" resultType="org.blog.entiy.record">
+        select * from record where id =#{id}
+    </select>
+
+    <select id="queryrecord" parameterType="int[]" resultType="org.blog.entiy.record">
+        select * from record where id =#{array[0]} limit #{array[1]},7
+    </select>
+    <insert id="createrecordtable" parameterType="int">
+        insert into record (id) values (#{id});
+    </insert>
+
+    <select id="queryaddress" parameterType="int" resultType="java.lang.String">
+        select adres from address where id =#{id}
+    </select>
+    <insert id="createarticle" parameterType="org.blog.entiy.article">
+        insert into article (id,memory,title) values (#{article.id},
+        #{article.memory},#{article.title})
+    </insert>
+    <update id="addamount" parameterType="int[]">
+        update user set  amount = #{array[0]} where id =#{array[1]}
+    </update>
+
+    <update id="clearLogin">
+        update login set status =0
+    </update>
+</mapper>

@@ -1,0 +1,20 @@
+#showarticle{
+	/* margin-top: 20px; */
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+}
+#showarticle dl dd{
+	margin: 0 auto;
+	width: 1000px;
+}
+.showbottom{
+      position: absolute;
+	 bottom: -60px;
+	 right: 11px;
+	 line-height: 25px;
+	text-align: center;
+}
+.showbottom .text{
+	width: 100px;
+}

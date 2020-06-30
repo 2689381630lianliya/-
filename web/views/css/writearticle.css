@@ -1,0 +1,34 @@
+.mui-center 
+{
+	position: relative;
+	/* background-color: #000000; */
+
+}
+.write input{
+	text-align: center;
+	height: 30px;
+	border: none;
+	border-bottom: #bbc2c3 1px solid;
+}
+#modif {
+	width: 200px;
+	border: solid red 1px;
+	background-color: red;
+	margin: 0px auto;
+	letter-spacing: 10px;
+}
+#modif  .submit {
+	right: 423px;
+	width: 200px;
+	background-color: red;
+	border: none;
+	color: white;
+}
+.text{
+	font-size: 28px;
+	line-height: 150px;
+	text-align: center;
+}
+.write-content textarea{
+
+}

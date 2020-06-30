@@ -1,0 +1,73 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                           http://www.springframework.org/schema/tx
+       					   http://www.springframework.org/schema/tx/spring-tx.xsd
+       					   http://www.springframework.org/schema/aop
+       					   https://www.springframework.org/schema/aop/spring-aop.xsd">    <!-- DataScouce层 -->
+
+
+    <context:component-scan base-package="org.blog"></context:component-scan>
+    <!--读取数据库参数 -->
+    <bean id="property" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:druid.properties"></property>
+    </bean>
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+     <!-- 配置数据源-->
+     <bean id="datasouce" class="com.alibaba.druid.pool.DruidDataSource">
+      <property name="driverClassName" value="${driverClassName}"></property>
+      <property name="url" value="${url}"></property>
+         <property name="password" value="${password}"></property>
+         <property name="username" value="${username}"></property>
+         <property name="defaultAutoCommit" value="true"></property>
+     </bean>
+     
+     <!--  配置数据bean
+    <bean id="blogservi" class="org.blog.service.blogserviceImpl">
+    <property name="maper" ref="blogmapper"></property>
+    </bean>-->
+    <!-- conf.xml :  数据源,mapper.xml -->
+    <!-- 配置MyBatis需要的核心类：SqlSessionFactory -->
+    <!-- 在SpringIoc容器中 创建MyBatis的核心类 SqlSesionFactory -->
+    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasouce"></property>
+
+
+        <property name="mapperLocations" value="classpath:org/blog/mapper/Blogmapper.xml"/>
+    </bean>
+    <!-- 将MyBatis的SqlSessionFactory 交给Spring -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
+        <property name="sqlSessionFactoryBeanName" value="SqlSessionFactory"></property>
+        <property name="basePackage" value="org.blog.mapper"></property>
+    </bean>
+    <!-- 配置事务管理器，事务从connection中获得，连接从Datasource中获得 -->
+    <bean id="manager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="datasouce"></property>
+    </bean>
+    <!-- 配置 事务详情（事务通知）  ， 在aop筛选基础上，对ABC三个确定使用什么样的事务。例如：AC读写、B只读 等
+   <tx:attributes> 用于配置事务详情（属性属性）
+       <tx:method name=""/> 详情具体配置
+           propagation 传播行为 ， REQUIRED：必须；REQUIRES_NEW:必须是新的
+           isolation 隔离级别 -->
+    <!--<tx:advice id="txadvice" transaction-manager="manager">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="bookmoney" propagation="REQUIRED" read-only="true"-->
+                       <!--rollback-for=""-->
+                       <!--isolation="DEFAULT"/>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+    <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="txadvice" pointcut="execution(String org.blog.Controllor.ShowArticle.bookmoney())"></aop:advisor>-->
+    <!--</aop:config>-->
+    <tx:annotation-driven transaction-manager="manager" />
+    <tx:annotation-driven proxy-target-class="true"></tx:annotation-driven>
+</beans>
